@@ -1,0 +1,31 @@
+{
+    "name": "anekdotes/support",
+    "type": "library",
+    "description": "Utility classes meant to facilitate object manipulation.",
+    "keywords": [
+        "str",
+        "string",
+        "arr",
+        "array",
+        "uuid",
+        "auth",
+        "helpers"
+    ],
+    "homepage": "https://github.com/anekdotes/support",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "authors": [
+        {
+            "name": "Mathieu Gosselin",
+            "email": "mathieu.gosselin@anekdotes.com",
+            "homepage": "http://anekdotes.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Anekdotes\\File\\": "src/anekdotes"
+        }
+    }
+}
