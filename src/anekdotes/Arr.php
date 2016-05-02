@@ -82,7 +82,7 @@ class Arr {
    * @param   string  $key    Key of the object we want to remove
    * @param   array   $array  Array we're working on
    */
-  public static function remove($key, $array) {
+  public static function remove($key, &$array) {
     if (static::exists($key, $array))
       unset($array[$key]);
   }
