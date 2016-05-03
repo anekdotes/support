@@ -7,16 +7,22 @@ use PHPUnit_Framework_TestCase;
 
 class StrTest extends PHPUnit_Framework_TestCase
 {
-    //test true startsWith str method
-    public function testTrueStartsWith()
+    //test startsWith str method
+    public function testStartsWith1()
     {
         $this->assertTrue(Str::startsWith('foo', 'f'));
     }
 
-    //test false startsWith str method
-    public function testFalseStartsWith()
+    //test startsWith str method
+    public function testStartsWith2()
     {
         $this->assertFalse(Str::startsWith('foo', 'y'));
+    }
+
+    //test startsWith str method
+    public function testStartsWith3()
+    {
+        $this->assertFalse(Str::startsWith('foo', ''));
     }
 
     //test true endsWith str method
@@ -272,13 +278,8 @@ class StrTest extends PHPUnit_Framework_TestCase
     }
 
     //test regexResult str method
-    // public function testRegexResult1()
-    // {
-    //   echo "\n";
-    //   echo "\n";
-    //   var_dump(Str::regexResult('/([\w]+)/', 'foo bar', 1));
-    //   echo "\n";
-    //   echo "\n";
-    //   $this->assertEquals('foo', 'foo');
-    // }
+    public function testRegexResult1()
+    {
+        $this->assertEquals(Str::regexResult('/([\w]+)/', 'foo bar', 0), ['foo', 'bar']);
+    }
 }
