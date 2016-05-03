@@ -85,11 +85,8 @@ class Str {
    */
   public static function snakeCase($value) {
     $value = static::ascii($value);
-    $pattern = '/(\w+)/';
-    return preg_replace_callback($pattern, function($matches) {
-        var_dump($matches);
-        //return "{$matches[1]}_" . strtolower("{$matches[2]}");
-      }, $value);
+    $value = static::replace($value, ' ', '_');
+    return $value;
   }
 
   /**
@@ -99,9 +96,18 @@ class Str {
    * @return string          Converted string
    */
   public static function camelCase($value, $firstLower = false) {
-    $val = str_replace(' ', '', ucwords(str_replace('_', ' ', $value)));
-    if ($firstLower) $val = strtolower(substr($val,0,1)).substr($val,1);
-    return $val;
+    $value = preg_replace('/[^a-zA-Z0-9\s]/', ' ', $value);
+    $value = lcfirst($value);
+    $values = static::split(' ', $value);
+    for ($i=1; $i < count($values); $i++) {
+      $values[$i] = ucfirst($values[$i]);
+    }
+
+    return implode('', $values);
+
+    // $val = str_replace(' ', '', ucwords(str_replace('_', ' ', $value)));
+    // if ($firstLower) $val = strtolower(substr($val,0,1)).substr($val,1);
+    // return $val;
   }
 
   /**
@@ -230,7 +236,7 @@ class Str {
      */
     public static function regexResult($reg, $str, $match = 1)
     {
-      preg_match($reg, $str, $matches);
+      preg_match_all($reg, $str, $matches);
       return $matches[$match];
     }
 
