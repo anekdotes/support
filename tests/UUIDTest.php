@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use PHPUnit_Framework_TestCase;
 use Anekdotes\Support\UUID;
+use PHPUnit_Framework_TestCase;
 
 class UUIDTest extends PHPUnit_Framework_TestCase
 {
@@ -12,5 +12,4 @@ class UUIDTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(UUID::v4() != '');
     }
-
 }
