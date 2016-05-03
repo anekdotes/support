@@ -9,7 +9,7 @@ class Str {
    * Determine if a given string starts with a given sub-string.
    *
    * @param  string        $haystack  String we're searching in
-   * @param  string|array  $needle    Sub-String we're checking if it's at the start
+   * @param  string  $needle    Sub-String we're checking if it's at the start
    * @return bool                     If the sub-string is at the start of the haystack
    */
   public static function startsWith($haystack, $needle)
@@ -22,7 +22,7 @@ class Str {
    * Determine if a given string ends with a given sub-string.
    *
    * @param  string        $haystack  String we're searching in
-   * @param  string|array  $needle    Sub-String we're checking if it's at the end
+   * @param  string  $needle    Sub-String we're checking if it's at the end
    * @return bool                     If the sub-string is at the end of the haystack
    */
   public static function endsWith($haystack, $needle)
@@ -38,6 +38,7 @@ class Str {
    * @return array               splitted array
    */
   public static function split($delimiter, $value, $limit=null) {
+    if ($delimiter == '') return $value;
     if ($limit == null) {
       return explode($delimiter, $value);
     }
@@ -83,9 +84,11 @@ class Str {
    * @return string          Converted string
    */
   public static function snakeCase($value) {
-    $pattern = '/([a-z])([A-Z])/';
+    $value = static::ascii($value);
+    $pattern = '/(\w+)/';
     return preg_replace_callback($pattern, function($matches) {
-        return '$matches[1]_' . strtolower('$matches[2]');
+        var_dump($matches);
+        //return "{$matches[1]}_" . strtolower("{$matches[2]}");
       }, $value);
   }
 
