@@ -1,16 +1,20 @@
-<?php namespace Anekdotes\Support;
+<?php
+
+namespace Anekdotes\Support;
 
 /**
  * A universally unique identifier (UUID) is an identifier standard used in software construction. A UUID is simply a 128-bit value.
  */
-class UUID {
-
-  /**
+class UUID
+{
+    /**
    * Generate a 128-bit UUID.
+   *
    * @return string  The generated UUID.
    */
-  public static function v4() {
-    return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+  public static function v4()
+  {
+      return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
 
       // 32 bits for "time_low"
       mt_rand(0, 0xffff), mt_rand(0, 0xffff),
@@ -31,5 +35,4 @@ class UUID {
       mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
     );
   }
-
 }
