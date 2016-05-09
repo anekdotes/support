@@ -2,7 +2,6 @@
 
 return [
   'foo'  => 'bar',
-  'hello'  => 'hello :person',
   'foos' => [
     'foo'  => 'bar',
     'bars' => [

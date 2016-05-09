@@ -94,11 +94,9 @@ class I18n
               define('DS', DIRECTORY_SEPARATOR);
           }
           foreach ($files as $file) {
-              // xx.fr.php
-        $shell = explode(DS, $file);
+              $shell = explode(DS, $file);
               $fileName = end($shell);
-        // xx.fr
-        $fileName = explode('.', $fileName, -1);
+              $fileName = explode('.', $fileName, -1);
               $prefix = '';
               if (count($fileName) == 2) {
                   $prefix = reset($fileName).'.';
@@ -109,15 +107,15 @@ class I18n
               $translations = require $file;
               $translations = array_dot($translations, $prefix);
 
-        // merge $namespace arrays with prefixed arrays if exists
-        if (isset($this->translations[$locale])) {
-            if (isset($this->translations[$locale][$namespace])) {
-                $translations = array_merge($this->translations[$locale][$namespace], $translations);
-            }
-        }
+              // merge $namespace arrays with prefixed arrays if exists
+              if (isset($this->translations[$locale])) {
+                  if (isset($this->translations[$locale][$namespace])) {
+                      $translations = array_merge($this->translations[$locale][$namespace], $translations);
+                  }
+              }
 
-        // Save the values in our instance array
-        $this->translations[$locale][$namespace] = $translations;
+              // Save the values in our instance array
+              $this->translations[$locale][$namespace] = $translations;
           }
       }
   }

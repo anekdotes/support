@@ -144,6 +144,13 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(get_gravatar('mathieu.gosselin@anekdotes.com') != '');
     }
 
+    //test get_gravatar helpers function
+    public function testGravatar2()
+    {
+        $gravatar = get_gravatar('mathieu.gosselin@anekdotes.com', 80, 'identicon', 'r', true);
+        $this->assertTrue(str_contains($gravatar, '<img'));
+    }
+
     //test array_column helpers function
     public function testArrayColumn1()
     {
