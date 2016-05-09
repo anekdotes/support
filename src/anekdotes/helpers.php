@@ -37,7 +37,7 @@
    *
    * @return  mixed           obtained value
    */
-  function array_dot_get($array, $key)
+  function array_dot_get($array = null, $key = null)
   {
       if (is_null($key)) {
           return $array;

@@ -15,7 +15,28 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     //test array_dot_get helpers function
     public function testArrayDotGet1()
     {
-        $this->assertTrue(true);
+        $this->assertEquals(array_dot_get(), null);
+    }
+
+    //test array_dot_get helpers function
+    public function testArrayDotGet2()
+    {
+        $array = require __DIR__.'/dummies/test.en.php';
+        $this->assertEquals(array_dot_get($array), $array);
+    }
+
+    //test array_dot_get helpers function
+    public function testArrayDotGet3()
+    {
+        $array = require __DIR__.'/dummies/test.en.php';
+        $this->assertEquals(array_dot_get($array, 'foo'), 'bar');
+    }
+
+    //test array_dot_get helpers function
+    public function testArrayDotGet4()
+    {
+        $array = array_dot(require __DIR__.'/dummies/test.en.php');
+        $this->assertEquals(array_dot_get($array, 'foos.foo'), 'bar');
     }
 
     //test html_style_tag helpers function
@@ -149,6 +170,13 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     {
         $gravatar = get_gravatar('mathieu.gosselin@anekdotes.com', 80, 'identicon', 'r', true);
         $this->assertTrue(str_contains($gravatar, '<img'));
+    }
+
+    //test get_gravatar helpers function
+    public function testGravatar3()
+    {
+        $gravatar = get_gravatar('mathieu.gosselin@anekdotes.com', 80, 'identicon', 'r', true, ['id' => 'gravatar']);
+        $this->assertTrue(str_contains($gravatar, '<img') && str_contains($gravatar, 'id="gravatar"'));
     }
 
     //test array_column helpers function
