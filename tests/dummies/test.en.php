@@ -1,11 +1,11 @@
 <?php
 
-return array(
-  'foo' => 'bar',
-  'foos' => array(
-    'foo' => 'bar',
-    'bars' => array(
-      'foo' => 'bar'
-    ),
-  ),
-);
+return [
+  'foo'  => 'bar',
+  'foos' => [
+    'foo'  => 'bar',
+    'bars' => [
+      'foo' => 'bar',
+    ],
+  ],
+];
