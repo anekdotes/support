@@ -30,6 +30,9 @@
     "autoload": {
         "psr-4": {
             "Anekdotes\\Support\\": "src/anekdotes"
-        }
+        },
+        "files": [
+            "src/anekdotes/helpers.php"
+        ]
     }
 }
