@@ -128,7 +128,7 @@ class I18nTest extends PHPUnit_Framework_TestCase
     {
         $i18n = new I18n('en');
         $i18n->setSupportedLocales(['en', 'fr']);
-        $i18n->loadFolder(__DIR__ . "/dummies/");
+        $i18n->loadFolder(__DIR__.'/dummies/');
         $this->assertEquals($i18n->dt('test.foo'), 'bar');
     }
 
@@ -137,7 +137,7 @@ class I18nTest extends PHPUnit_Framework_TestCase
     {
         $i18n = new I18n('en');
         $i18n->setSupportedLocales(['en', 'fr']);
-        $i18n->loadFolder(__DIR__ . "/dummies/");
+        $i18n->loadFolder(__DIR__.'/dummies/');
         $this->assertEquals($i18n->dt('test.foos.foo'), 'bar');
     }
 
@@ -146,7 +146,7 @@ class I18nTest extends PHPUnit_Framework_TestCase
     {
         $i18n = new I18n('en');
         $i18n->setSupportedLocales(['en', 'fr']);
-        $i18n->loadFolder(__DIR__ . "/dummies/");
+        $i18n->loadFolder(__DIR__.'/dummies/');
         $this->assertEquals($i18n->dt('test.foos.bars.foo'), 'bar');
     }
 
@@ -155,7 +155,7 @@ class I18nTest extends PHPUnit_Framework_TestCase
     {
         $i18n = new I18n('en');
         $i18n->setSupportedLocales(['en', 'fr']);
-        $i18n->loadFolder(__DIR__ . "/dummies/");
+        $i18n->loadFolder(__DIR__.'/dummies/');
         $this->assertEquals($i18n->dt('test.bar'), '');
     }
 
@@ -164,7 +164,7 @@ class I18nTest extends PHPUnit_Framework_TestCase
     {
         $i18n = new I18n('en');
         $i18n->setSupportedLocales(['en', 'fr']);
-        $i18n->loadFolder(__DIR__ . "/dummies/");
+        $i18n->loadFolder(__DIR__.'/dummies/');
         $i18n->setLocale('fr');
         $this->assertEquals($i18n->dt('test.foo'), 'bar fr');
     }
