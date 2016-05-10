@@ -362,10 +362,7 @@ if (!function_exists('array_column')) {
               $keySet = true;
               $key = (string) $row[$paramsIndexKey];
           }
-          if ($paramsColumnKey === null) {
-              $valueSet = true;
-              $value = $row;
-          } elseif (is_array($row) && array_key_exists($paramsColumnKey, $row)) {
+          if (is_array($row) && array_key_exists($paramsColumnKey, $row)) {
               $valueSet = true;
               $value = $row[$paramsColumnKey];
           }

@@ -6,6 +6,7 @@ use PHPUnit_Framework_TestCase;
 
 class HelpersTest extends PHPUnit_Framework_TestCase
 {
+
     //test array_dot helpers function
     public function testArrayDot1()
     {
@@ -58,13 +59,28 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     public function testArrayDotGet6()
     {
         $array = [
-          'toaster.cod.sam'  => 'juggernaut',
-          'toaster.cod.steve'  => 'headshot',
+          'toaster.cod.sam'   => 'juggernaut',
+          'toaster.cod.steve' => 'headshot',
           'mathieu'           => 'patate',
         ];
         $final = [
-          'sam'  => 'juggernaut',
+          'sam'   => 'juggernaut',
           'steve' => 'headshot',
+        ];
+        $this->assertEquals(array_dot_get($array, 'toaster.cod'), $final);
+    }
+
+    //test array_dot_get helpers function
+    public function testArrayDotGet7()
+    {
+        $array = [
+          'toaster.cod.sam.juggernaut'   => 'op',
+          'mathieu'           => 'patate',
+        ];
+        $final = [
+          'sam'   => [
+            'juggernaut' => 'op'
+          ]
         ];
         $this->assertEquals(array_dot_get($array, 'toaster.cod'), $final);
     }
@@ -240,5 +256,92 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     public function testArrayColumn1()
     {
         $this->assertEquals(array_column([['id' => 1], ['id' => 2], ['id' => 3]], 'id'), [1, 2, 3]);
+    }
+
+    //test array_column helpers function
+    public function testArrayColumn2()
+    {
+        try {
+          array_column();
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+            return;
+        }
+    }
+
+    //test array_column helpers function
+    public function testArrayColumn3()
+    {
+        try {
+          array_column([]);
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+            return;
+        }
+    }
+
+    //test array_column helpers function
+    public function testArrayColumn4()
+    {
+        try {
+          array_column(1);
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+            return;
+        }
+    }
+
+    //test array_column helpers function
+    public function testArrayColumn5()
+    {
+        try {
+          array_column([], []);
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+            return;
+        }
+    }
+
+    //test array_column helpers function
+    public function testArrayColumn6()
+    {
+        try {
+          array_column([], [], []);
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+            return;
+        }
+    }
+
+    //test array_column helpers function
+    public function testArrayColumn7()
+    {
+        $array = [
+          [
+            'id'   => 1,
+            'name' => 'steve'
+          ],
+          [
+            'id'   => 2,
+            'name' => 'sam'
+          ]
+        ];
+        $this->assertEquals(array_column($array, 'name', 'id'), [1 => 'steve', 2 => 'sam']);
+    }
+
+    //test array_column helpers function
+    public function testArrayColumn8()
+    {
+        $array = [
+          [
+            'id'   => 1,
+            'name' => 'steve'
+          ],
+          [
+            'id'   => 2,
+            'name' => 'sam'
+          ]
+        ];
+        $this->assertEquals(array_column($array, 'name', 2), [0 => 'steve', 1 => 'sam']);
     }
 }
