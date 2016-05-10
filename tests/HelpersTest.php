@@ -6,7 +6,6 @@ use PHPUnit_Framework_TestCase;
 
 class HelpersTest extends PHPUnit_Framework_TestCase
 {
-
     //test array_dot helpers function
     public function testArrayDot1()
     {
