@@ -43,15 +43,30 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     public function testArrayDotGet5()
     {
         $array = [
-          'toaster.Sam' => 'CoD',
+          'toaster.Sam'  => 'CoD',
           'toaster.test' => 'Toast',
-          'Mathieu' => 'Patate'
+          'Mathieu'      => 'Patate',
         ];
         $final = [
-          'Sam' => 'CoD',
-          'test' => 'Toast'
+          'Sam'  => 'CoD',
+          'test' => 'Toast',
         ];
         $this->assertEquals(array_dot_get($array, 'toaster'), $final);
+    }
+
+    //test array_dot_get helpers function
+    public function testArrayDotGet6()
+    {
+        $array = [
+          'toaster.cod.sam'  => 'juggernaut',
+          'toaster.cod.steve'  => 'headshot',
+          'mathieu'           => 'patate',
+        ];
+        $final = [
+          'sam'  => 'juggernaut',
+          'steve' => 'headshot',
+        ];
+        $this->assertEquals(array_dot_get($array, 'toaster.cod'), $final);
     }
 
     //test array_dot_expand helpers function

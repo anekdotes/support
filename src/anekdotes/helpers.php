@@ -146,6 +146,7 @@ if (!function_exists('array_dot_expand')) {
               $parent[$leafpart] = $val;
           }
       }
+
       return $ret;
   }
 }

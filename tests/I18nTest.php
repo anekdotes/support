@@ -187,4 +187,15 @@ class I18nTest extends PHPUnit_Framework_TestCase
         $i18n->loadFolder(__DIR__.'/dummies/');
         $this->assertEquals($i18n->dt('test.hello', ['person' => 'world']), 'hello world');
     }
+
+    //test dt I18n method
+    public function testDT9()
+    {
+        $i18n = new I18n('en');
+        $i18n->setSupportedLocales(['en', 'fr']);
+        $i18n->loadFolder(__DIR__.'/dummies/');
+        $i18n->loadFolder(__DIR__.'/dummies/other/', 'other');
+        $i18n->loadFolder(__DIR__.'/dummies/okay/');
+        $this->assertEquals($i18n->dt('test.foo1'), 'bar');
+    }
 }
