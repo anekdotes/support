@@ -39,6 +39,24 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(array_dot_get($array, 'foos.foo'), 'bar');
     }
 
+    //test array_dot_expand helpers function
+    public function testArrayDotExpand1()
+    {
+        $array = array(
+          "Toaster.me.k" => "string.a",
+          "patate" => "three"
+        );
+
+        $this->assertEquals(array_dot_expand($array), array(
+          'Toaster' => array(
+            'me' => array(
+              'k' => 'string.a'
+            )
+          ),
+          'patate' => 'three'
+        ));
+    }
+
     //test html_style_tag helpers function
     public function testHtmlStyleTag1()
     {
@@ -55,12 +73,6 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     public function testHtmlScriptTag2()
     {
         $this->assertEquals(html_script_tag('/test', ['async' => null]), '<script src="/assets//test" type="text/javascript" async=""></script>');
-    }
-
-    //test array_dot_expand helpers function
-    public function testArrayDotExpand1()
-    {
-        $this->assertTrue(true);
     }
 
     //test str_contains helpers function
