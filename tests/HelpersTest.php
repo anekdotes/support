@@ -79,7 +79,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         ];
         $final = [
           'sam'   => [
-            'juggernaut' => 'op'
+            'juggernaut' => 'op',
           ],
         ];
         $this->assertEquals(array_dot_get($array, 'toaster.cod'), $final);
@@ -265,6 +265,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
             array_column();
         } catch (\Exception $e) {
             $this->assertTrue(true);
+
             return;
         }
     }
@@ -276,6 +277,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
             array_column([]);
         } catch (\Exception $e) {
             $this->assertTrue(true);
+
             return;
         }
     }
@@ -287,6 +289,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
             array_column(1);
         } catch (\Exception $e) {
             $this->assertTrue(true);
+
             return;
         }
     }
@@ -298,6 +301,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
             array_column([], []);
         } catch (\Exception $e) {
             $this->assertTrue(true);
+
             return;
         }
     }
@@ -309,6 +313,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
             array_column([], [], []);
         } catch (\Exception $e) {
             $this->assertTrue(true);
+
             return;
         }
     }
@@ -324,7 +329,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
           [
             'id'   => 2,
             'name' => 'sam',
-          ]
+          ],
         ];
         $this->assertEquals(array_column($array, 'name', 'id'), [1 => 'steve', 2 => 'sam']);
     }
@@ -340,7 +345,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
           [
             'id'   => 2,
             'name' => 'sam',
-          ]
+          ],
         ];
         $this->assertEquals(array_column($array, 'name', 2), [0 => 'steve', 1 => 'sam']);
     }
