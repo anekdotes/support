@@ -1,10 +1,10 @@
 <?php
 
 return [
-  'foo' => 'bar',
+  'foo'   => 'bar',
   'hello' => 'hello :person',
-  'foos' => [
-    'foo' => 'bar',
+  'foos'  => [
+    'foo'  => 'bar',
     'bars' => [
       'foo' => 'bar',
     ],

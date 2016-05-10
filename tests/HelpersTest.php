@@ -39,22 +39,52 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(array_dot_get($array, 'foos.foo'), 'bar');
     }
 
+    //test array_dot_get helpers function
+    public function testArrayDotGet5()
+    {
+        $array = [
+          'toaster.Sam' => 'CoD',
+          'toaster.test' => 'Toast',
+          'Mathieu' => 'Patate'
+        ];
+        $final = [
+          'Sam' => 'CoD',
+          'test' => 'Toast'
+        ];
+        $this->assertEquals(array_dot_get($array, 'toaster'), $final);
+    }
+
     //test array_dot_expand helpers function
     public function testArrayDotExpand1()
     {
-        $array = array(
-          "Toaster.me.k" => "string.a",
-          "patate" => "three"
-        );
+        $array = [
+          'Toaster.me.k' => 'string.a',
+          'patate'       => 'three',
+        ];
+        $final = [
+          'Toaster' => [
+            'me' => [
+              'k' => 'string.a',
+            ],
+          ],
+          'patate' => 'three',
+        ];
 
-        $this->assertEquals(array_dot_expand($array), array(
-          'Toaster' => array(
-            'me' => array(
-              'k' => 'string.a'
-            )
-          ),
-          'patate' => 'three'
-        ));
+        $this->assertEquals(array_dot_expand($array), $final);
+    }
+
+    //test array_dot_expand helpers function
+    public function testArrayDotExpand2()
+    {
+        $this->assertFalse(array_dot_expand(''));
+    }
+
+    //test array_dot_expand helpers function
+    public function testArrayDotExpand3()
+    {
+        $array = ['hello' => 'string', 'hello.world' => ['hey' => 'hello']];
+        $final = ['hello' => ['world' => ['hey' => 'hello']]];
+        $this->assertEquals(array_dot_expand($array), $final);
     }
 
     //test html_style_tag helpers function
