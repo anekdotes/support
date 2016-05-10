@@ -75,12 +75,12 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     {
         $array = [
           'toaster.cod.sam.juggernaut'   => 'op',
-          'mathieu'           => 'patate',
+          'mathieu'                      => 'patate',
         ];
         $final = [
           'sam'   => [
             'juggernaut' => 'op'
-          ]
+          ],
         ];
         $this->assertEquals(array_dot_get($array, 'toaster.cod'), $final);
     }
@@ -262,7 +262,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     public function testArrayColumn2()
     {
         try {
-          array_column();
+            array_column();
         } catch (\Exception $e) {
             $this->assertTrue(true);
             return;
@@ -273,7 +273,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     public function testArrayColumn3()
     {
         try {
-          array_column([]);
+            array_column([]);
         } catch (\Exception $e) {
             $this->assertTrue(true);
             return;
@@ -284,7 +284,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     public function testArrayColumn4()
     {
         try {
-          array_column(1);
+            array_column(1);
         } catch (\Exception $e) {
             $this->assertTrue(true);
             return;
@@ -295,7 +295,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     public function testArrayColumn5()
     {
         try {
-          array_column([], []);
+            array_column([], []);
         } catch (\Exception $e) {
             $this->assertTrue(true);
             return;
@@ -306,7 +306,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     public function testArrayColumn6()
     {
         try {
-          array_column([], [], []);
+            array_column([], [], []);
         } catch (\Exception $e) {
             $this->assertTrue(true);
             return;
@@ -319,11 +319,11 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $array = [
           [
             'id'   => 1,
-            'name' => 'steve'
+            'name' => 'steve',
           ],
           [
             'id'   => 2,
-            'name' => 'sam'
+            'name' => 'sam',
           ]
         ];
         $this->assertEquals(array_column($array, 'name', 'id'), [1 => 'steve', 2 => 'sam']);
@@ -335,11 +335,11 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $array = [
           [
             'id'   => 1,
-            'name' => 'steve'
+            'name' => 'steve',
           ],
           [
             'id'   => 2,
-            'name' => 'sam'
+            'name' => 'sam',
           ]
         ];
         $this->assertEquals(array_column($array, 'name', 2), [0 => 'steve', 1 => 'sam']);
