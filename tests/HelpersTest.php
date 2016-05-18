@@ -126,13 +126,13 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     //test html_script_tag helpers function
     public function testHtmlScriptTag1()
     {
-        $this->assertEquals(html_script_tag('/test'), '<script src="/assets//test" type="text/javascript"></script>');
+        $this->assertEquals(html_script_tag('/test'), '<script src="/test" type="text/javascript"></script>');
     }
 
     //test html_script_tag helpers function
     public function testHtmlScriptTag2()
     {
-        $this->assertEquals(html_script_tag('/test', ['async' => null]), '<script src="/assets//test" type="text/javascript" async=""></script>');
+        $this->assertEquals(html_script_tag('/test', ['async' => null]), '<script src="/test" type="text/javascript" async=""></script>');
     }
 
     //test str_contains helpers function

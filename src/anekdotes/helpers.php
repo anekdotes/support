@@ -95,8 +95,7 @@ if (!function_exists('html_script_tag')) {
    */
   function html_script_tag($path, $opts = [])
   {
-      $html = '<script src="/';
-      $html .= 'assets/';
+      $html = '<script src="';
       $html .= $path;
       $html .= '"';
       if (!array_key_exists('type', $opts)) {
