@@ -348,4 +348,24 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         ];
         $this->assertEquals(array_column($array, 'name', 2), [0 => 'steve', 1 => 'sam']);
     }
+
+    //test getallheaders helpers function
+    public function testGetallheaders1()
+    {
+        $this->assertEquals(getallheaders(), []);
+    }
+
+    //test getallheaders helpers function
+    public function testGetallheaders2()
+    {
+        $_SERVER['HTTP_COOKIE'] = 'sb_session=f392508bf781ecc507e90587d34ab9e7403f6061; gsScrollPos=';
+        $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'en-US,en;q=0.8,fr;q=0.6';
+        $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate, sdch';
+        $_SERVER['HTTP_REFERER'] = 'localhost';
+        $_SERVER['HTTP_UPGRADE_INSECURE_REQUESTS'] = '1';
+        $_SERVER['HTTP_CACHE_CONTROL'] = 'max-age=0';
+        $_SERVER['HTTP_CONNECTION'] = 'keep-alive';
+        $_SERVER['HTTP_HOST'] = 'localhost';
+        $this->assertEquals(count(getallheaders()), 8);
+    }
 }
