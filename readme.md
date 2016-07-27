@@ -100,7 +100,7 @@ Arr::remove('foo', $dummy);
 $dummy // ['id'=>1, 'title'=>'foo']
 ```
 
-#### Arr
+#### Str
 
 Contains helper functions used to manipulate strings.
 
