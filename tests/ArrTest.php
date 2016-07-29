@@ -137,4 +137,18 @@ class ArrTest extends PHPUnit_Framework_TestCase
         Arr::remove('potato', $this->dummies);
         $this->assertEquals(count($this->dummies), 11);
     }
+
+    //test Shuffle
+    public function testShuffle()
+    {
+        $expected = [
+            ['id' => 4],
+            ['id' => 1],
+            ['id' => 3],
+            ['id' => 2],
+            ['id' => 5],
+        ];
+        Arr::seedShuffle($this->dummies3, 123);
+        $this->assertEquals($expected, $this->dummies3);
+    }
 }
