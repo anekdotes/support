@@ -141,14 +141,14 @@ class ArrTest extends PHPUnit_Framework_TestCase
     //test Shuffle
     public function testShuffle()
     {
-        $expected = [ 
+        $expected = [
             ['id' => 4],
             ['id' => 1],
             ['id' => 3],
             ['id' => 2],
             ['id' => 5],
         ];
-        Arr::seedShuffle($this->dummies3,123);
-        $this->assertEquals($expected,$this->dummies3);
+        Arr::seedShuffle($this->dummies3, 123);
+        $this->assertEquals($expected, $this->dummies3);
     }
 }
