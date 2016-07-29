@@ -105,4 +105,23 @@ class Arr
           unset($array[$key]);
       }
   }
+
+  /**
+   * Shuffles the array using a Seed.
+   *
+   * @param   array  $array  Array we're shuffling
+   * @param   int    $seed   Seed we're using to shuffle
+   * @link   https://en.wikipedia.org/wiki/Fisher–Yates_shuffle
+   */
+  public static function seedShuffle(&$array, $seed)
+  {
+      @mt_srand($seed);
+      for ($i = count($array) - 1; $i > 0; $i--)
+      {
+          $j = @mt_rand(0, $i);
+          $tmp = $array[$i];
+          $array[$i] = $array[$j];
+          $array[$j] = $tmp;
+      }
+  }
 }
