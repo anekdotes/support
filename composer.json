@@ -1,5 +1,6 @@
 {
     "name": "anekdotes/support",
+    "version": "1.0.11",
     "type": "library",
     "description": "Utility classes meant to facilitate object manipulation.",
     "keywords": [

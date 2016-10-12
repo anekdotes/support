@@ -307,7 +307,7 @@ if (!function_exists('array_column')) {
    * @param  $columnKey  string|integer  the key of the column we want
    * @param  $indexKey   string|integer  the column that needs to be used as the key of the returned array_column
    *
-   * @return array                        Array of the column.
+   * @return array                        Array of the column
    */
   function array_column($input = null, $columnKey = null, $indexKey = null)
   {

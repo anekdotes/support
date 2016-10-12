@@ -123,7 +123,7 @@ class I18n
   /**
    * Give the proper translation based on the locale.
    *
-   * @param  string  Here are a lot of parameters. Each parameter corresponds to a translation, in order in which they are in supported locales.
+   * @param  string  Here are a lot of parameters. Each parameter corresponds to a translation, in order in which they are in supported locales
    *
    * @return string  The string corresponding to the current locale
    */

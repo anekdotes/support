@@ -25,7 +25,7 @@ class Arr
       $ordered = [];
       $i = 0;
       foreach ($data as $key => $value) {
-          $i++;
+          ++$i;
           $ordered[$value[$sortKey].'-'.$i] = $value;
       }
 
@@ -117,7 +117,7 @@ class Arr
   public static function seedShuffle(&$array, $seed)
   {
       @mt_srand($seed);
-      for ($i = count($array) - 1; $i > 0; $i--) {
+      for ($i = count($array) - 1; $i > 0; --$i) {
           $j = @mt_rand(0, $i);
           $tmp = $array[$i];
           $array[$i] = $array[$j];

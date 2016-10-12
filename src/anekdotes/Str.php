@@ -40,8 +40,8 @@ class Str
   /**
    * Returns an array of strings, each of which is a substring of string formed by splitting it on boundaries formed by the string delimiter.
    *
-   * @param  string  $delimiter  The boundary string.
-   * @param  string  $value      The input string.
+   * @param  string  $delimiter  The boundary string
+   * @param  string  $value      The input string
    * @param  int     $limit      The maximum amount of elements in the string if positive (last element will not be axploded and contain the rest). If negative, it's the amount of elements to not return (starting at the end)
    *
    * @return array               splitted array
@@ -121,7 +121,7 @@ class Str
       $value = preg_replace('/[^a-zA-Z0-9\s]/', ' ', $value);
       $value = lcfirst($value);
       $values = static::split(' ', $value);
-      for ($i = 1; $i < count($values); $i++) {
+      for ($i = 1; $i < count($values); ++$i) {
           $values[$i] = ucfirst($values[$i]);
       }
 

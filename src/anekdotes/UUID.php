@@ -10,7 +10,7 @@ class UUID
     /**
    * Generate a 128-bit UUID.
    *
-   * @return string  The generated UUID.
+   * @return string  The generated UUID
    */
   public static function v4()
   {
