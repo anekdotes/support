@@ -13,7 +13,7 @@ Utility classes meant to facilitate object manipulation
 
 Install via composer into your project:
 
-```php
+```
 composer require anekdotes/support
 ```
 
