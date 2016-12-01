@@ -387,15 +387,16 @@ if (!function_exists('date_formater')) {
      * @param  $format  string  the desired format
      * @param  $locale   string  the locale
      *
-     * @return  string  Formatted date
+     * @return string Formatted date
      */
-    function date_formater($timestamp, $format = "%A, %d %B %Y %H:%M", $locale = 'fr'){
-      setlocale(LC_TIME, $locale . '_CA.UTF-8');
-      $dt = new Carbon\Carbon($timestamp);
-      return $dt->formatLocalized($format);
+    function date_formater($timestamp, $format = '%A, %d %B %Y %H:%M', $locale = 'fr')
+    {
+        setlocale(LC_TIME, $locale.'_CA.UTF-8');
+        $dt = new Carbon\Carbon($timestamp);
+
+        return $dt->formatLocalized($format);
     }
 }
-
 
 if (!function_exists('getallheaders')) {
 
