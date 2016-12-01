@@ -378,6 +378,25 @@ if (!function_exists('array_column')) {
   }
 }
 
+if (!function_exists('date_formater')) {
+
+    /**
+     * Format a given date.
+     *
+     * @param  $timestamp  string  date the date you wish to format
+     * @param  $format  string  the desired format
+     * @param  $locale   string  the locale
+     *
+     * @return  string  Formatted date
+     */
+    function date_formater($timestamp, $format = "%A, %d %B %Y %H:%M", $locale = 'fr'){
+      setlocale(LC_TIME, $locale . '_CA.UTF-8');
+      $dt = new Carbon\Carbon($timestamp);
+      return $dt->formatLocalized($format);
+    }
+}
+
+
 if (!function_exists('getallheaders')) {
 
    /**

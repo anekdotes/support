@@ -368,4 +368,16 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $_SERVER['HTTP_HOST'] = 'localhost';
         $this->assertEquals(count(getallheaders()), 8);
     }
+
+    //test date formater helpers function
+    public function testDateFormater1()
+    {
+        $this->assertEquals(date_formater('2016-10-28 00:00:00'), 'Vendredi, 28 octobre 2016 00:00');
+    }
+
+    //test date formater helpers function
+    public function testDateFormater2()
+    {
+        $this->assertEquals(date_formater('2016-10-28 00:00:00', '%B', 'en'), 'October');
+    }
 }
