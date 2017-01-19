@@ -70,15 +70,25 @@ if (!function_exists('html_style_tag')) {
    * Create a stylesheet tag, with the path to the sheet provided.
    *
    * @param  string  $path   Path to the style sheet
-   * @param  string  $media  Value to put in the "media" value of the html tag
+   * @param  array   $opts   Additionnal option values to be added to the tag
    *
    * @return string          The HTML style link tag
    */
-  function html_style_tag($path, $media = 'screen')
+  function html_style_tag($path, $opts = [])
   {
       $html = '<link rel="stylesheet" href="';
       $html .= $path;
-      $html .= '" media="'.$media.'" />';
+      $html .= '"';
+
+      if (!array_key_exists('media', $opts)) {
+          $html .= ' media="all"';
+      }
+
+      foreach ($opts as $key => $value) {
+          $html .= " $key=\"$value\"";
+      }
+
+      $html .= ' />';
 
       return $html;
   }
@@ -98,12 +108,15 @@ if (!function_exists('html_script_tag')) {
       $html = '<script src="';
       $html .= $path;
       $html .= '"';
+
       if (!array_key_exists('type', $opts)) {
           $html .= ' type="text/javascript"';
       }
+      
       foreach ($opts as $key => $value) {
           $html .= " $key=\"$value\"";
       }
+
       $html .= '></script>';
 
       return $html;

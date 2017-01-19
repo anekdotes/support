@@ -120,7 +120,19 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     //test html_style_tag helpers function
     public function testHtmlStyleTag1()
     {
-        $this->assertEquals(html_style_tag('/test'), '<link rel="stylesheet" href="/test" media="screen" />');
+        $this->assertEquals(html_style_tag('/test'), '<link rel="stylesheet" href="/test" media="all" />');
+    }
+
+    //test html_style_tag helpers function
+    public function testHtmlStyleTag2()
+    {
+        $this->assertEquals(html_style_tag('/test', ['media' => 'screen']), '<link rel="stylesheet" href="/test" media="screen" />');
+    }
+
+    //test html_style_tag helpers function
+    public function testHtmlStyleTag3()
+    {
+        $this->assertEquals(html_style_tag('/test', ['media' => 'screen', 'async' => 'true']), '<link rel="stylesheet" href="/test" media="screen" async="true" />');
     }
 
     //test html_script_tag helpers function
@@ -372,7 +384,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     //test date formater helpers function
     public function testDateFormater1()
     {
-        $this->assertEquals(date_formater('2016-10-28 00:00:00'), 'Vendredi, 28 octobre 2016 00:00');
+        $this->assertEquals(date_formater('2016-10-28 00:00:00', '%A, %d %B %Y %H:%M', 'fr'), 'Vendredi, 28 octobre 2016 00:00');
     }
 
     //test date formater helpers function
