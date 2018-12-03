@@ -411,6 +411,36 @@ if (!function_exists('date_formater')) {
     }
 }
 
+if (!function_exists('price')) {
+    function price($value, $decimal = 2){
+        $fr = T::getLocale() == 'fr';
+        $separator = $fr ? ',' : '.';
+        $value = number_format($value, $decimal, $separator, ' ');
+
+        if ($fr){
+            return "{$value} $";
+        }
+        else{
+            return "{$value}$";
+        }
+    }
+}
+
+if (!function_exists('percent')) {
+    function percent($value, $decimal = 0){
+        $fr = T::getLocale() == 'fr';
+        $separator = $fr ? ',' : '.';
+        $value = number_format($value, $decimal, $separator, ' ');
+
+        if ($fr){
+            return "{$value} %";
+        }
+        else{
+            return "{$value}%";
+        }
+    }
+}
+
 if (!function_exists('getallheaders')) {
 
    /**

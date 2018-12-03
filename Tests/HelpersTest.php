@@ -381,15 +381,39 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(count(getallheaders()), 8);
     }
 
-    //test date formater helpers function
+    //test date formater helpers function 1
     public function testDateFormater1()
     {
         $this->assertEquals(date_formater('2016-10-28 00:00:00', '%A, %d %B %Y %H:%M', 'fr'), 'Vendredi, 28 octobre 2016 00:00');
     }
 
-    //test date formater helpers function
+    //test date formater helpers function 2
     public function testDateFormater2()
     {
         $this->assertEquals(date_formater('2016-10-28 00:00:00', '%B', 'en'), 'October');
+    }
+
+    //test price helpers function 1
+    public function testPrice1()
+    {
+        $this->assertEquals(price(10.12, 'fr'), '10,12 $');
+    }
+
+    //test price helpers function 2
+    public function testPrice2()
+    {
+        $this->assertEquals(price(10.12, 'en'), '10.12$');
+    }
+
+    //test price helpers function 3
+    public function testPrice3()
+    {
+        $this->assertEquals(price(10.123, 'fr'), '10,12 $');
+    }
+
+    //test price helpers function 4
+    public function testPrice4()
+    {
+        $this->assertEquals(price(10.123, 'en'), '10.12$');
     }
 }
