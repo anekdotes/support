@@ -2,6 +2,8 @@
 
 namespace Anekdotes\Support;
 
+use function Symfony\Component\String\u;
+
 /**
  * Contains helper functions used to manipulate strings.
  */
@@ -174,7 +176,7 @@ class Str
    */
   public static function ascii($value)
   {
-      return \Patchwork\Utf8::toAscii($value);
+      return u($value)->ascii();
   }
 
     /**
