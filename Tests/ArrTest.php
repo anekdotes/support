@@ -3,9 +3,9 @@
 namespace Tests;
 
 use Anekdotes\Support\Arr;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ArrTest extends PHPUnit_Framework_TestCase
+final class ArrTest extends TestCase
 {
     public $dummies = ['id' => 1, 'title' => 'Yasir', 'city' => 'Hamilton', 'country' => 'Jordan', 'phone' => '1-985-616-0794', 'company' => 'Euismod Urna Nullam Ltd', 'pin' => '4596', 'word' => 'tincidunt', 'price' => '$58.20', 'postal' => 'V1N 0N0', 'date' => '2015-05-08 10:45:12'];
 
@@ -136,19 +136,5 @@ class ArrTest extends PHPUnit_Framework_TestCase
     {
         Arr::remove('potato', $this->dummies);
         $this->assertEquals(count($this->dummies), 11);
-    }
-
-    //test Shuffle
-    public function testShuffle()
-    {
-        $expected = [
-            ['id' => 4],
-            ['id' => 1],
-            ['id' => 3],
-            ['id' => 2],
-            ['id' => 5],
-        ];
-        Arr::seedShuffle($this->dummies3, 123);
-        $this->assertEquals($expected, $this->dummies3);
     }
 }

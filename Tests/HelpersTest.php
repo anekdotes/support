@@ -2,9 +2,9 @@
 
 namespace Tests;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class HelpersTest extends PHPUnit_Framework_TestCase
+final class HelpersTest extends TestCase
 {
     //test array_dot helpers function
     public function testArrayDot1()
@@ -396,24 +396,48 @@ class HelpersTest extends PHPUnit_Framework_TestCase
     //test price helpers function 1
     public function testPrice1()
     {
-        $this->assertEquals(price(10.12, 'fr'), '10,12 $');
+        $this->assertEquals(price(10.12, 2, 'fr'), '10,12 $');
     }
 
     //test price helpers function 2
     public function testPrice2()
     {
-        $this->assertEquals(price(10.12, 'en'), '10.12$');
+        $this->assertEquals(price(10.12, 2, 'en'), '10.12$');
     }
 
     //test price helpers function 3
     public function testPrice3()
     {
-        $this->assertEquals(price(10.123, 'fr'), '10,12 $');
+        $this->assertEquals(price(10.123, 2, 'fr'), '10,12 $');
     }
 
     //test price helpers function 4
     public function testPrice4()
     {
-        $this->assertEquals(price(10.123, 'en'), '10.12$');
+        $this->assertEquals(price(10.123, 2, 'en'), '10.12$');
+    }
+
+    //test price helpers function 5
+    public function testPrice5()
+    {
+        $this->assertEquals(price(10.123, 1, 'fr'), '10,1 $');
+    }
+
+    //test price helpers function 6
+    public function testPrice6()
+    {
+        $this->assertEquals(price(10.123, 1, 'en'), '10.1$');
+    }
+
+    //test price helpers function 7
+    public function testPrice7()
+    {
+        $this->assertEquals(price(10.123, 0, 'fr'), '10 $');
+    }
+
+    //test price helpers function 8
+    public function testPrice8()
+    {
+        $this->assertEquals(price(10.123, 0, 'en'), '10$');
     }
 }

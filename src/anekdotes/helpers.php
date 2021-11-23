@@ -412,8 +412,8 @@ if (!function_exists('date_formater')) {
 }
 
 if (!function_exists('price')) {
-    function price($value, $decimal = 2){
-        $fr = T::getLocale() == 'fr';
+    function price($value, $decimal = 2, $locale = 'fr'){
+        $fr = $locale == 'fr';
         $separator = $fr ? ',' : '.';
         $value = number_format($value, $decimal, $separator, ' ');
 

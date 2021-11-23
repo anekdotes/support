@@ -3,9 +3,9 @@
 namespace Tests;
 
 use Anekdotes\Support\I18n;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class I18nTest extends PHPUnit_Framework_TestCase
+final class I18nTest extends TestCase
 {
     //test getLocale I18n method
     public function testGetLocale1()

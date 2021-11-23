@@ -4,3 +4,4 @@ composer.lock
 docs
 tmp/
 .git
+.phpunit.result.cache

@@ -3,9 +3,9 @@
 namespace Tests;
 
 use Anekdotes\Support\UUID;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class UUIDTest extends PHPUnit_Framework_TestCase
+final class UUIDTest extends TestCase
 {
     //test v4 UUID method
     public function testv41()

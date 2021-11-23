@@ -3,9 +3,9 @@
 namespace Tests;
 
 use Anekdotes\Support\Str;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class StrTest extends PHPUnit_Framework_TestCase
+final class StrTest extends TestCase
 {
     //test startsWith str method
     public function testStartsWith1()
